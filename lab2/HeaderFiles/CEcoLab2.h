@@ -1,4 +1,4 @@
-﻿/*
+/*
  * <кодировка символов>
  *   Cyrillic (UTF-8 with signature) - Codepage 65001
  * </кодировка символов>
@@ -17,18 +17,17 @@
  *
  */
 
-#ifndef __C_ECOLAB1_H__
-#define __C_ECOLAB1_H__
+#ifndef LAB1_CECOLAB2_H
+#define LAB1_CECOLAB2_H
 
-#include "IEcoLab1.h"
 #include "IEcoSystem1.h"
 #include "IdEcoMemoryManager1.h"
+#include "IEcoLab1.h"
 #include "IEcoCalculatorY.h"
 #include "IEcoCalculatorX.h"
 
-typedef struct CEcoLab1 {
+typedef struct CEcoLab2 {
 
-    IEcoLab1VTbl* m_pVTblIEcoLab1;
 
     IEcoCalculatorYVTbl* m_pVTblIY;
 
@@ -50,19 +49,21 @@ typedef struct CEcoLab1 {
 
     IEcoCalculatorY* m_pIY;
 
-    IEcoUnknown* m_pInnerUnknown;
+    IEcoUnknown* m_pInnerUnknownLab1;
+
+    IEcoUnknown* m_pInnerUnknownB;
 
     IEcoCalculatorX* m_pIX;
 
     IEcoUnknown* m_pIUnkOuter;
 
-} CEcoLab1, *CEcoLab1Ptr;
+} CEcoLab2, *CEcoLab2Ptr;
 
 /* Инициализация экземпляра */
-int16_t ECOCALLMETHOD initCEcoLab1(/*in*/ struct IEcoLab1* me, /* in */ IEcoUnknown *pIUnkSystem);
+int16_t ECOCALLMETHOD initCEcoLab2(/*in*/ struct IEcoCalculatorY * me, /* in */ IEcoUnknown *pIUnkSystem);
 /* Создание экземпляра */
-int16_t ECOCALLMETHOD createCEcoLab1(/* in */ IEcoUnknown* pIUnkSystem, /* in */ IEcoUnknown* pIUnkOuter, /* out */ IEcoLab1** ppIEcoLab1);
+int16_t ECOCALLMETHOD createCEcoLab2(/* in */ IEcoUnknown* pIUnkSystem, /* in */ IEcoUnknown* pIUnkOuter, /* out */ IEcoCalculatorY** ppIEcoLab2);
 /* Удаление */
-void ECOCALLMETHOD deleteCEcoLab1(/* in */ IEcoLab1* pIEcoLab1);
+void ECOCALLMETHOD deleteCEcoLab2(/* in */ IEcoCalculatorY* pIEcoLab2);
 
-#endif /* __C_ECOLAB1_H__ */
+#endif /* LAB1_CECOLAB2_H */
