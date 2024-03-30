@@ -144,10 +144,10 @@ int16_t EcoMain(IEcoUnknown* pIUnk) {
     printf("Start components testing:\n");
 
     printf("Addition: %d + %d = %d\n Right answer: %d\n", testValues[0], testValues[1],
-           pIX->pVTbl->Addition(pIY, testValues[0], testValues[1]), testValues[0] + testValues[1]);
+           pIX->pVTbl->Addition(pIX, testValues[0], testValues[1]), testValues[0] + testValues[1]);
 
     printf("Subtraction: %d - %d = %d\n Right answer: %d\n", testValues[0], testValues[1],
-           pIX->pVTbl->Subtraction(pIY, testValues[0], testValues[1]), testValues[0] - testValues[1]);
+           pIX->pVTbl->Subtraction(pIX, testValues[0], testValues[1]), testValues[0] - testValues[1]);
 
     pIX->pVTbl->Release(pIX);
 
