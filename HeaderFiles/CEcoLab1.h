@@ -26,6 +26,10 @@
 #include "IEcoCalculatorY.h"
 #include "IEcoCalculatorX.h"
 
+#include "IEcoEnumConnections.h"
+#include "IEcoConnectionPointContainer.h"
+#include "CEcoLab1ConnectionPoint.h"
+
 typedef struct CEcoLab1 {
 
     IEcoLab1VTbl* m_pVTblIEcoLab1;
@@ -36,11 +40,15 @@ typedef struct CEcoLab1 {
 
     IEcoUnknownVTbl* m_pVTblINondelegatingUnk;
 
+    IEcoConnectionPointContainerVTbl* m_pVTblICPC;
+
     /* Счетчик ссылок */
     uint32_t m_cRef;
 
     /* Интерфейс для работы с памятью */
     IEcoMemoryAllocator1* m_pIMem;
+
+    CEcoLab1ConnectionPoint* m_pISinkCP;
 
     /* Системный интерфейс */
     IEcoSystem1* m_pISys;
